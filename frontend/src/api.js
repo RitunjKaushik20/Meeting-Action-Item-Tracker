@@ -5,7 +5,7 @@ const baseURL =
     ? import.meta.env.VITE_API_URL
     : import.meta.env.DEV
       ? ''
-      : 'https://meeting-action-item-tracker-api.onrender.com';
+      : 'https://meeting-action-item-tracker-gnu7.onrender.com';
 
 export const API = axios.create({
   baseURL,
