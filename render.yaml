@@ -15,5 +15,5 @@ services:
       - key: PORT
         value: "3001"
       - key: ALLOWED_ORIGIN
-        value: "*"
+        value: https://meeting-action-item-tracker-gnu7.onrender.com
 
