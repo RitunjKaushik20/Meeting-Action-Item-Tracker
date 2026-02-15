@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: meeting-action-tracker-api
+    env: node
+    region: oregon
+    buildCommand: npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: PORT
+        value: "3001"
+      - key: ALLOWED_ORIGIN
+        value: "*"
+
