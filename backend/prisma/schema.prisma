@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "windows"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Transcript {
+  id        String       @id @default(uuid())
+  text      String
+  createdAt DateTime     @default(now())
+  items     ActionItem[]
+}
+
+model ActionItem {
+  id           String     @id @default(uuid())
+  transcriptId String
+  transcript   Transcript @relation(fields: [transcriptId], references: [id], onDelete: Cascade)
+  task         String
+  owner        String?
+  dueDate      DateTime?
+  status       String     @default("open")
+  tags         String[]
+  createdAt    DateTime   @default(now())
+}

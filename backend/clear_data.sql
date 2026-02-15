@@ -1,0 +1,1 @@
+TRUNCATE TABLE "ActionItem", "Transcript" RESTART IDENTITY CASCADE;
