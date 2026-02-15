@@ -5,7 +5,7 @@ const baseURL =
     ? import.meta.env.VITE_API_URL
     : import.meta.env.DEV
       ? ''
-      : 'http://localhost:5001';
+      : 'https://meeting-action-item-tracker-api.onrender.com';
 
 export const API = axios.create({
   baseURL,
@@ -17,6 +17,6 @@ export function getApiErrorMessage(err) {
   const msg = err.response?.data?.error;
   if (typeof msg === 'string') return msg;
   if (err.code === 'ECONNABORTED') return 'Request timed out. Is the backend running?';
-  if (err.code === 'ERR_NETWORK') return 'Cannot reach the server. Start the backend with: cd backend && npm start';
+  if (err.code === 'ERR_NETWORK') return 'Cannot reach the server. Please check if the backend is deployed.';
   return err.message || 'Something went wrong.';
 }
